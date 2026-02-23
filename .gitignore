@@ -13,3 +13,24 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Gradle caches / wrapper / daemon (should never be committed)
+caches/
+wrapper/
+daemon/
+native/
+notifications/
+kotlin-profile/
+jdks/
+
+# Build outputs
+app/build/
+
+# Android
+android/FakeDependency.jar
+
+# IDE
+.vscode/
+
+# Images (non-source)
+img/

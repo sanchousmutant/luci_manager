@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/devices_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_device" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:indicatorColor="@color/md_theme_primary" />
+
+        <LinearLayout
+            android:id="@+id/empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:alpha="0.6"
+                android:src="@drawable/ic_devices"
+                app:tint="@color/dark_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/devices_no_devices"
+                android:textColor="@color/dark_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/error_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_error"
+                app:tint="@color/md_theme_error" />
+
+            <TextView
+                android:id="@+id/error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@color/dark_gray" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/retry_button"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/button_retry" />
+        </LinearLayout>
+
+    </FrameLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

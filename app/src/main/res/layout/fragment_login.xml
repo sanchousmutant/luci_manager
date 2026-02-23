@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="OpenWrt Manager"
+        android:text="@string/login_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Manage your network interfaces"
+        android:text="@string/login_subtitle"
         android:textSize="16sp"
         android:textColor="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:hint="Router IP Address"
+        android:hint="@string/hint_ip_address"
         app:startIconDrawable="@drawable/ic_router"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Username"
+        android:hint="@string/hint_username"
         app:startIconDrawable="@drawable/ic_person"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Password"
+        android:hint="@string/hint_password"
         app:startIconDrawable="@drawable/ic_lock"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,19 +121,33 @@
         tools:text="Login failed. Please check your credentials."
         tools:visibility="visible" />
 
+    <!-- Discover Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/discover_button"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_discover"
+        app:icon="@drawable/ic_discover"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_text" />
+
     <!-- Login Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:text="Connect to Router"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_connect"
         android:textSize="16sp"
         app:icon="@drawable/ic_login"
         app:iconGravity="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/error_text" />
+        app:layout_constraintTop_toBottomOf="@+id/discover_button" />
 
     <!-- Progress Indicator -->
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -155,7 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="Make sure your device is connected to the same WiFi network as your OpenWrt router."
+        android:text="@string/info_wifi_connection"
         android:textSize="12sp"
         android:textColor="@color/dark_gray"
         app:layout_constraintBottom_toBottomOf="parent"

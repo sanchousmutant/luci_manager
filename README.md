@@ -1,247 +1,195 @@
-# OpenWrt Interface Manager
+# OpenWrt Manager
 
 ![OpenWrt Manager](https://img.shields.io/badge/OpenWrt-Manager-blue?style=flat-square&logo=openwrt)
 ![Android](https://img.shields.io/badge/Android-Kotlin-green?style=flat-square&logo=android)
 ![Material Design 3](https://img.shields.io/badge/Material%20Design-3.0-orange?style=flat-square&logo=material-design)
 
-Современное Android-приложение для удобного управления сетевыми интерфейсами на роутере с OpenWrt через LuCI RPC API.
+Android-приложение для полноценного управления роутером на OpenWrt через LuCI ubus JSON-RPC API. Навигация через боковое меню (Navigation Drawer), локализация RU/EN.
 
-## ✨ Особенности
+## Возможности
 
-### 🎨 Современный дизайн
-- **Material Design 3.0** - следует последним принципам дизайна Google
-- **Темная и светлая темы** - автоматическое переключение
-- **Интуитивно понятный интерфейс** - минималистичный и функциональный
-- **Плавные анимации** и переходы между экранами
+### Панель управления (Dashboard)
+- Модель роутера, hostname, прошивка, ядро
+- Uptime, загрузка CPU (load average)
+- Использование оперативной памяти с прогресс-баром
 
-### 🔐 Безопасность
-- **HTTPS поддержка** с обработкой self-signed сертификатов
-- **Безопасная аутентификация** через LuCI RPC API
-- **Управление сессиями** с автоматическим logout
-- **Локальное сохранение** учетных данных (с возможностью шифрования)
+### Сетевые интерфейсы
+- Просмотр всех интерфейсов (LAN, WAN, WWAN, Guest и др.)
+- Включение/отключение интерфейсов одним касанием
+- IP-адрес, устройство, протокол
+- Pull-to-refresh
 
-### 🌐 Сетевые функции
-- **Просмотр всех сетевых интерфейсов** (LAN, WAN, WWAN, WiFi)
-- **Включение/отключение интерфейсов** одним касанием
-- **Реальное время статусов** с автоматическим обновлением
-- **Pull-to-refresh** для обновления данных
-- **Детальная информация** об интерфейсах (IP, device, protocol)
+### WiFi
+- Список всех WiFi-сетей роутера
+- Редактирование SSID, пароля, канала, мощности передатчика
+- Отображение частоты, шифрования, режима
+- Применение настроек через UCI + перезагрузка WiFi
 
-## 📱 Скриншоты интерфейса
+### Подключённые устройства
+- DHCP-аренды (MAC, IP, hostname)
+- WiFi-клиенты с уровнем сигнала
+- Разделение на проводные и беспроводные
 
-### Экран входа (Login Screen)
-```
-┌─────────────────────────────────────┐
-│        🌐 OpenWrt Manager          │
-│     Manage your network interfaces  │
-│                                     │
-│  ┌─────────────────────────────────┐ │
-│  │ 🌐 Router IP Address           │ │
-│  │ 192.168.1.1                   │ │
-│  └─────────────────────────────────┘ │
-│                                     │
-│  ┌─────────────────────────────────┐ │
-│  │ 👤 Username                    │ │
-│  │ root                           │ │
-│  └─────────────────────────────────┘ │
-│                                     │
-│  ┌─────────────────────────────────┐ │
-│  │ 🔒 Password                    │ │
-│  │ ••••••••                       │ │
-│  └─────────────────────────────────┘ │
-│                                     │
-│  ┌─────────────────────────────────┐ │
-│  │      🚀 Connect to Router      │ │
-│  └─────────────────────────────────┘ │
-│                                     │
-│    Make sure your device is         │
-│    connected to the same WiFi...    │
-└─────────────────────────────────────┘
-```
+### VPN
+- Обнаружение OpenVPN и WireGuard подключений
+- Запуск/остановка VPN одним касанием
+- Отображение статуса (активно/неактивно)
 
-### Экран управления интерфейсами (Interface Management)
-```
-┌─────────────────────────────────────┐
-│ Network Interfaces      🔄  🚪      │
-├─────────────────────────────────────┤
-│                                     │
-│ ┌─────────────────────────────────┐ │
-│ │ 🌐  LAN                        │ │
-│ │     ● Active                   │ │
-│ │     192.168.1.1 • br-lan   [⏹] │ │
-│ └─────────────────────────────────┘ │
-│                                     │
-│ ┌─────────────────────────────────┐ │
-│ │ 🌍  WAN                        │ │
-│ │     ● Active                   │ │
-│ │     192.168.0.100 • eth0   [⏹] │ │
-│ └─────────────────────────────────┘ │
-│                                     │
-│ ┌─────────────────────────────────┐ │
-│ │ 📶  WWAN                       │ │
-│ │     ○ Inactive                 │ │
-│ │     wlan0                  [▶]  │ │
-│ └─────────────────────────────────┘ │
-│                                     │
-│ ┌─────────────────────────────────┐ │
-│ │ 📡  Guest WiFi                 │ │
-│ │     ○ Inactive                 │ │
-│ │     wlan1                  [▶]  │ │
-│ └─────────────────────────────────┘ │
-│                                     │
-└─────────────────────────────────────┘
-```
+### Управление пакетами (opkg)
+- Список установленных пакетов
+- Поиск по доступным пакетам
+- Установка и удаление пакетов
+- Обновление списков пакетов
 
-## 🏗️ Архитектура
+### Система
+- Перезагрузка роутера с подтверждением
+- Выключение роутера с подтверждением
 
-### 📦 Структура проекта
+### Автообнаружение роутера
+- Определение gateway через ConnectivityManager
+- Параллельная проверка стандартных IP (192.168.1.1, 192.168.0.1 и др.)
+- Выбор найденного роутера на экране входа
+
+### Виджет на рабочий стол
+- Компактный виджет с uptime, RAM%, количеством клиентов
+- Автоматическое обновление каждые 30 минут
+
+### Push-уведомления
+- Мониторинг новых устройств в сети (WorkManager)
+- Настраиваемый интервал (15/30/60 минут)
+- Уведомления при подключении нового устройства
+
+### Прочее
+- Navigation Drawer с 8 разделами
+- Локализация: русский (по умолчанию) + английский
+- Material Design 3, тёмная и светлая темы
+- Безопасное хранение учётных данных (EncryptedSharedPreferences)
+- Поддержка self-signed сертификатов
+
+## Структура проекта
+
 ```
 com.example.lucimanager/
-├── model/                    # Модели данных
-│   ├── NetworkInterface.kt
+├── model/                        # Модели данных
 │   ├── LoginCredentials.kt
-│   └── LuciSession.kt
-├── network/                  # Сетевой слой
-│   └── LuciApiClient.kt     # HTTP клиент для LuCI API
-├── repository/               # Репозиторий для данных
-│   └── NetworkRepository.kt
-├── viewmodel/               # ViewModels (MVVM)
+│   ├── LuciSession.kt
+│   ├── NetworkInterface.kt
+│   ├── RouterInfo.kt
+│   ├── WifiNetwork.kt
+│   ├── ConnectedDevice.kt
+│   ├── VpnConnection.kt
+│   ├── OpkgPackage.kt
+│   ├── DiscoveredRouter.kt
+│   └── MonitoringState.kt
+├── network/                      # Сетевой слой
+│   └── LuciApiClient.kt         # ubus JSON-RPC клиент
+├── repository/
+│   └── NetworkRepository.kt     # Репозиторий данных
+├── viewmodel/                    # ViewModels (MVVM)
 │   ├── LoginViewModel.kt
-│   └── InterfaceViewModel.kt
-└── ui/                      # UI слой
-    ├── login/
-    │   └── LoginFragment.kt
-    └── interfaces/
-        ├── InterfacesFragment.kt
-        └── NetworkInterfaceAdapter.kt
+│   ├── InterfaceViewModel.kt
+│   ├── DashboardViewModel.kt
+│   ├── WifiViewModel.kt
+│   ├── DevicesViewModel.kt
+│   ├── VpnViewModel.kt
+│   └── PackagesViewModel.kt
+├── ui/                           # UI
+│   ├── home/HomeFragment.kt             # DrawerLayout хост
+│   ├── login/LoginFragment.kt
+│   ├── dashboard/DashboardFragment.kt
+│   ├── interfaces/
+│   │   ├── InterfacesFragment.kt
+│   │   └── NetworkInterfaceAdapter.kt
+│   ├── wifi/
+│   │   ├── WifiFragment.kt
+│   │   ├── WifiAdapter.kt
+│   │   └── WifiEditDialogFragment.kt
+│   ├── devices/
+│   │   ├── DevicesFragment.kt
+│   │   └── DeviceAdapter.kt
+│   ├── vpn/
+│   │   ├── VpnFragment.kt
+│   │   └── VpnAdapter.kt
+│   ├── packages/
+│   │   ├── PackagesFragment.kt
+│   │   └── PackageAdapter.kt
+│   ├── system/SystemActionsFragment.kt
+│   ├── settings/NotificationSettingsFragment.kt
+│   └── discovery/DiscoveryDialogFragment.kt
+├── service/
+│   ├── RouterDiscoveryService.kt
+│   ├── MonitoringWorker.kt
+│   └── NotificationHelper.kt
+├── widget/
+│   └── RouterWidgetProvider.kt
+├── utils/
+│   ├── NetworkUtils.kt
+│   └── ViewExtensions.kt
+└── MyApplication.kt
 ```
 
-### 🔧 Используемые технологии
+## Технологии
 
-#### Core Android
-- **Kotlin** - современный язык программирования
-- **ViewBinding** - безопасная привязка views
-- **Navigation Component** - навигация между экранами
-- **Fragments** - модульная архитектура UI
+| Категория | Технология |
+|-----------|-----------|
+| Язык | Kotlin |
+| Архитектура | MVVM, Repository Pattern |
+| UI | Material Design 3, ViewBinding, Navigation Component |
+| Сеть | OkHttp, Gson, Coroutines |
+| Навигация | Navigation Drawer + NavHostFragment |
+| Фоновые задачи | WorkManager |
+| Безопасность | EncryptedSharedPreferences |
+| API | LuCI ubus JSON-RPC |
 
-#### Architecture Components
-- **ViewModel** - управление состоянием UI
-- **LiveData** - reactive обновления UI
-- **Repository Pattern** - централизованное управление данными
+## ubus API
 
-#### Network
-- **OkHttp** - HTTP клиент с поддержкой HTTPS
-- **Gson** - JSON парсинг для API ответов
-- **Coroutines** - асинхронная обработка
+Приложение взаимодействует с роутером через endpoint:
 
-#### UI/UX
-- **Material Design 3** - современные компоненты UI
-- **RecyclerView** - эффективные списки
-- **SwipeRefreshLayout** - pull-to-refresh
-- **ConstraintLayout** - гибкие layouts
-
-## 🚀 Начало работы
-
-### Требования
-- Android 14+ (API level 34+)
-- Kotlin 1.9+
-- Android Studio Hedgehog или новее
-
-### Установка
-1. Клонируйте репозиторий
-2. Откройте проект в Android Studio
-3. Синхронизируйте Gradle зависимости
-4. Соберите и запустите проект
-
-### Конфигурация OpenWrt
-Убедитесь, что на вашем роутере OpenWrt:
-- Включен LuCI веб-интерфейс
-- Настроен RPC API доступ
-- Ваше Android устройство подключено к той же сети
-
-## 🔌 API Integration
-
-### LuCI RPC Endpoints
-```kotlin
-// Аутентификация
-POST /cgi-bin/luci/rpc/auth
-{
-  "method": "login",
-  "params": ["username", "password"]
-}
-
-// Получение статуса интерфейсов
-POST /cgi-bin/luci/rpc/sys
-{
-  "method": "call",
-  "params": [token, "network", "get_status"]
-}
-
-// Управление интерфейсами
-POST /cgi-bin/luci/rpc/sys  
-{
-  "method": "call",
-  "params": [token, "network", "ifup/ifdown", {"interface": "lan"}]
-}
+```
+POST http://<router_ip>/cgi-bin/luci/admin/ubus
 ```
 
-## 🛠️ Разработка
+Используемые ubus-вызовы:
 
-### Добавление нового интерфейса
-1. Обновите `NetworkInterface` модель
-2. Добавьте логику в `LuciApiClient`
-3. Обновите `NetworkInterfaceAdapter`
-4. Добавьте соответствующие иконки и ресурсы
+| Объект | Метод | Назначение |
+|--------|-------|-----------|
+| `session` | `login` / `destroy` | Аутентификация |
+| `system` | `board` / `info` | Информация о системе |
+| `network.interface` | `dump` | Сетевые интерфейсы |
+| `network.interface.*` | `up` / `down` | Управление интерфейсами |
+| `network.wireless` | `status` | Статус WiFi |
+| `uci` | `get` / `set` / `commit` | Конфигурация UCI |
+| `luci-rpc` | `getDHCPLeases` | DHCP-аренды |
+| `hostapd.*` | `get_clients` | WiFi-клиенты |
+| `service` | `list` | Статус сервисов (VPN) |
+| `file` | `exec` | Выполнение команд (opkg, reboot, wifi reload) |
 
-### Кастомизация UI
-Все цвета и стили находятся в:
-- `res/values/colors.xml` - цветовая палитра
-- `res/values/themes.xml` - темы приложения
-- `res/values/strings.xml` - текстовые ресурсы
+## Требования
 
-## 🔒 Безопасность
+- Android 7.0+ (API 24+)
+- OpenWrt роутер с включённым LuCI и ubus RPC
+- Подключение к одной сети с роутером
 
-### Рекомендации
-- Используйте HTTPS для продакшен окружения
-- Регулярно обновляйте пароли роутера
-- Не сохраняйте чувствительные данные в plain text
-- Рассмотрите использование Android Keystore для шифрования
+## Сборка
 
-## 🐛 Отладка
-
-### Логи
-Включите подробное логирование в `LuciApiClient` для отладки API вызовов:
-```kotlin
-private val okHttpClient = OkHttpClient.Builder()
-    .addInterceptor(HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    })
-    .build()
+```bash
+git clone <repo>
+cd Luci_manager
+./gradlew assembleDebug
 ```
 
-### Типичные проблемы
-- **Ошибка подключения**: проверьте IP адрес и сетевое соединение
-- **Ошибка аутентификации**: убедитесь в правильности логина/пароля
-- **Timeout**: увеличьте timeout в OkHttp клиенте
+APK будет в `app/build/outputs/apk/debug/`.
 
-## 📝 Лицензия
+## Разрешения
 
-Этот проект распространяется под лицензией MIT. Подробности в файле `LICENSE`.
+| Разрешение | Назначение |
+|-----------|-----------|
+| `INTERNET` | Подключение к роутеру |
+| `ACCESS_NETWORK_STATE` | Проверка состояния сети |
+| `ACCESS_WIFI_STATE` | Информация о WiFi |
+| `ACCESS_FINE_LOCATION` | Автообнаружение роутера (Android 10+) |
+| `POST_NOTIFICATIONS` | Push-уведомления (Android 13+) |
 
-## 👥 Вклад в проект
+## Лицензия
 
-Мы приветствуем вклад в развитие проекта! Пожалуйста:
-1. Создайте fork репозитория
-2. Создайте feature branch
-3. Сделайте commit изменений
-4. Создайте Pull Request
-
----
-
-## 📞 Поддержка
-
-Если у вас есть вопросы или предложения:
-- Создайте Issue в GitHub
-- Свяжитесь с командой разработки
-
-**Сделано с ❤️ для OpenWrt сообщества**
+MIT

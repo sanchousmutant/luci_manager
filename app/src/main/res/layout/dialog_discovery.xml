@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/discovery_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/md_theme_primary" />
+
+    <TextView
+        android:id="@+id/discovery_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/discovery_searching"
+        android:textColor="@color/dark_gray" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/discovery_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>

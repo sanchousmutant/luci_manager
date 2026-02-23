@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/wifi_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_background"
+            android:padding="8dp"
+            android:src="@drawable/ic_wifi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            android:id="@+id/wifi_ssid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/edit_button"
+            app:layout_constraintStart_toEndOf="@+id/wifi_icon"
+            app:layout_constraintTop_toTopOf="@+id/wifi_icon"
+            tools:text="MyNetwork_5G" />
+
+        <TextView
+            android:id="@+id/wifi_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            app:layout_constraintStart_toEndOf="@+id/wifi_icon"
+            app:layout_constraintTop_toBottomOf="@+id/wifi_ssid"
+            tools:text="5 GHz • Channel 36 • WPA2-PSK" />
+
+        <TextView
+            android:id="@+id/wifi_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintStart_toEndOf="@+id/wifi_icon"
+            app:layout_constraintTop_toBottomOf="@+id/wifi_info"
+            tools:text="Включена" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/edit_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:minWidth="80dp"
+            android:textSize="12sp"
+            android:text="@string/wifi_edit_title"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wifi_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -67,6 +67,12 @@ dependencies {
     
     // SwipeRefreshLayout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    // WorkManager
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+
+    // DrawerLayout
+    implementation("androidx.drawerlayout:drawerlayout:1.2.0")
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

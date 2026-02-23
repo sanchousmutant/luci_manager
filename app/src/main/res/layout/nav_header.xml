@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@color/md_theme_primary"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_router"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/nav_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nav_header_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:alpha="0.8"
+        tools:text="192.168.1.1"
+        xmlns:tools="http://schemas.android.com/tools" />
+
+</LinearLayout>

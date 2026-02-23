@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboardFragment"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/menu_dashboard" />
+        <item
+            android:id="@+id/interfacesFragment"
+            android:icon="@drawable/ic_interfaces"
+            android:title="@string/menu_interfaces" />
+        <item
+            android:id="@+id/wifiFragment"
+            android:icon="@drawable/ic_wifi"
+            android:title="@string/menu_wifi" />
+        <item
+            android:id="@+id/devicesFragment"
+            android:icon="@drawable/ic_devices"
+            android:title="@string/menu_devices" />
+        <item
+            android:id="@+id/vpnFragment"
+            android:icon="@drawable/ic_vpn"
+            android:title="@string/menu_vpn" />
+        <item
+            android:id="@+id/packagesFragment"
+            android:icon="@drawable/ic_packages"
+            android:title="@string/menu_packages" />
+        <item
+            android:id="@+id/systemActionsFragment"
+            android:icon="@drawable/ic_system"
+            android:title="@string/menu_system" />
+    </group>
+
+    <item android:title="@string/menu_other">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/notificationSettingsFragment"
+                    android:icon="@drawable/ic_settings"
+                    android:title="@string/menu_notification_settings" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

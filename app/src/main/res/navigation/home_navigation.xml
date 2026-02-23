@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.lucimanager.ui.dashboard.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/interfacesFragment"
+        android:name="com.example.lucimanager.ui.interfaces.InterfacesFragment"
+        android:label="@string/menu_interfaces"
+        tools:layout="@layout/fragment_interfaces" />
+
+    <fragment
+        android:id="@+id/wifiFragment"
+        android:name="com.example.lucimanager.ui.wifi.WifiFragment"
+        android:label="@string/menu_wifi"
+        tools:layout="@layout/fragment_wifi" />
+
+    <fragment
+        android:id="@+id/devicesFragment"
+        android:name="com.example.lucimanager.ui.devices.DevicesFragment"
+        android:label="@string/menu_devices"
+        tools:layout="@layout/fragment_devices" />
+
+    <fragment
+        android:id="@+id/vpnFragment"
+        android:name="com.example.lucimanager.ui.vpn.VpnFragment"
+        android:label="@string/menu_vpn"
+        tools:layout="@layout/fragment_vpn" />
+
+    <fragment
+        android:id="@+id/packagesFragment"
+        android:name="com.example.lucimanager.ui.packages.PackagesFragment"
+        android:label="@string/menu_packages"
+        tools:layout="@layout/fragment_packages" />
+
+    <fragment
+        android:id="@+id/systemActionsFragment"
+        android:name="com.example.lucimanager.ui.system.SystemActionsFragment"
+        android:label="@string/menu_system"
+        tools:layout="@layout/fragment_system_actions" />
+
+    <fragment
+        android:id="@+id/notificationSettingsFragment"
+        android:name="com.example.lucimanager.ui.settings.NotificationSettingsFragment"
+        android:label="@string/menu_notification_settings"
+        tools:layout="@layout/fragment_notification_settings" />
+
+</navigation>

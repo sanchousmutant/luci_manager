@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/vpn_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_background"
+            android:padding="8dp"
+            android:src="@drawable/ic_vpn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            android:id="@+id/vpn_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/toggle_button"
+            app:layout_constraintStart_toEndOf="@+id/vpn_icon"
+            app:layout_constraintTop_toTopOf="@+id/vpn_icon"
+            tools:text="my_vpn" />
+
+        <LinearLayout
+            android:id="@+id/status_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/vpn_icon"
+            app:layout_constraintTop_toBottomOf="@+id/vpn_name">
+
+            <View
+                android:id="@+id/status_indicator"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/circle_indicator" />
+
+            <TextView
+                android:id="@+id/vpn_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="Active" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/vpn_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintStart_toEndOf="@+id/vpn_icon"
+            app:layout_constraintTop_toBottomOf="@+id/status_layout"
+            tools:text="OpenVPN" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggle_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:minWidth="80dp"
+            android:textSize="12sp"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vpn_icon"
+            tools:text="Stop" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/toggle_progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            app:indicatorColor="?attr/colorPrimary"
+            app:indicatorSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/toggle_button"
+            app:layout_constraintEnd_toEndOf="@+id/toggle_button"
+            app:layout_constraintStart_toStartOf="@+id/toggle_button"
+            app:layout_constraintTop_toTopOf="@+id/toggle_button"
+            app:trackThickness="2dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

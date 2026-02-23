@@ -1,25 +1,56 @@
 <resources>
-    <string name="app_name">Luci manager</string>
+    <string name="app_name">OpenWrt Manager</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">OpenWrt Manager</string>
+    <string name="nav_header_subtitle">Network Interface Management</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Login Screen -->
+    <string name="login_title">OpenWrt Manager</string>
+    <string name="login_subtitle">Manage your network interfaces</string>
+    <string name="hint_ip_address">Router IP Address</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_connect">Connect to Router</string>
+    <string name="info_wifi_connection">Make sure your device is connected to the same WiFi network as your OpenWrt router.</string>
+    
+    <!-- Interface Screen -->
+    <string name="title_network_interfaces">Network Interfaces</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_logout">Logout</string>
+    <string name="status_active">Active</string>
+    <string name="status_inactive">Inactive</string>
+    <string name="button_enable">Enable</string>
+    <string name="button_disable">Disable</string>
+    
+    <!-- Error Messages -->
+    <string name="error_empty_fields">Please fill in all fields</string>
+    <string name="error_invalid_ip">Please enter a valid IP address</string>
+    <string name="error_login_failed">Login failed. Please check your credentials.</string>
+    <string name="error_connection_failed">Failed to connect to router. Please check your connection.</string>
+    <string name="error_no_interfaces">No interfaces found</string>
+    <string name="error_toggle_failed">Failed to toggle interface</string>
+    
+    <!-- Success Messages -->
+    <string name="success_login">Login successful!</string>
+    <string name="success_logout">Logged out successfully</string>
+    <string name="success_interface_enabled">Interface enabled successfully</string>
+    <string name="success_interface_disabled">Interface disabled successfully</string>
+    
+    <!-- Pull to Refresh -->
+    <string name="pull_to_refresh">Pull down to refresh</string>
+    
+    <!-- Buttons -->
+    <string name="button_retry">Retry</string>
+    
+    <!-- Legacy strings for old layouts -->
+    <string name="fab_content_description">Floating Action Button</string>
+    <string name="image_view_item_transform_content_description">Transform item image</string>
     <string name="menu_transform">Transform</string>
     <string name="menu_reflow">Reflow</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_settings">Settings</string>
-
-    <string name="lorem_ipsum_title">Lorem Ipsum"</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book"
-    </string>
-    <string name="fab_content_description">Represents a view to invoke an action</string>
-    <string name="image_view_item_transform_content_description">Represents an image view in the
-        item
-    </string>
+    
 </resources>

@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.lucimanager"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.lucimanager"
-        minSdk = 34
-        targetSdk = 36
+        minSdk = 24      // Updated from 26 to 34 for compatibility with Material Components
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -49,6 +49,21 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    
+    // Networking
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    
+    // Fragment KTX
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    
+    // SwipeRefreshLayout
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

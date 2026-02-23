@@ -6,7 +6,7 @@
 
 Android-приложение для полноценного управления роутером на OpenWrt через LuCI ubus JSON-RPC API. Навигация через боковое меню (Navigation Drawer), локализация RU/EN.
 
-![images](img/img1.jpg)![images](img/img2.jpg)![images](img/img3.jpg)
+![images](img/p6.png)
 ## Возможности
 
 ### Панель управления (Dashboard)

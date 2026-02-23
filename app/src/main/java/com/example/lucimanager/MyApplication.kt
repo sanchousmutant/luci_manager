@@ -4,14 +4,15 @@ import android.app.Application
 import java.io.File
 import java.io.PrintWriter
 import java.io.StringWriter
-import kotlin.system.exitProcess
 
 class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             handleUncaughtException(throwable)
+            defaultHandler?.uncaughtException(thread, throwable)
         }
     }
 
@@ -27,7 +28,5 @@ class MyApplication : Application() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
-        exitProcess(1)
     }
 }

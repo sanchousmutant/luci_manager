@@ -2,36 +2,49 @@ package com.example.lucimanager.repository
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import com.example.lucimanager.model.LoginCredentials
 import com.example.lucimanager.model.LuciSession
 import com.example.lucimanager.model.NetworkInterface
 import com.example.lucimanager.network.LuciApiClient
-import com.google.gson.Gson
 
 class NetworkRepository(private val context: Context) {
-    private val apiClient = LuciApiClient()
-    private val prefs: SharedPreferences = context.getSharedPreferences("luci_prefs", Context.MODE_PRIVATE)
-    private val gson = Gson()
+    private val prefs: SharedPreferences = createEncryptedPrefs()
+
+    private fun createEncryptedPrefs(): SharedPreferences {
+        return try {
+            val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+            EncryptedSharedPreferences.create(
+                "luci_prefs",
+                masterKeyAlias,
+                context,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        } catch (e: Exception) {
+            context.getSharedPreferences("luci_prefs", Context.MODE_PRIVATE)
+        }
+    }
 
     suspend fun login(credentials: LoginCredentials): Result<LuciSession> {
-        val result = apiClient.login(credentials)
+        val result = LuciApiClient.login(credentials)
         if (result.isSuccess) {
-            // Save credentials securely (in a real app, consider using encrypted storage)
             saveCredentials(credentials)
         }
         return result
     }
 
     suspend fun getNetworkInterfaces(): Result<List<NetworkInterface>> {
-        return apiClient.getNetworkInterfaces()
+        return LuciApiClient.getNetworkInterfaces()
     }
 
     suspend fun toggleInterface(interfaceName: String, enable: Boolean): Result<Boolean> {
-        return apiClient.toggleInterface(interfaceName, enable)
+        return LuciApiClient.toggleInterface(interfaceName, enable)
     }
 
     suspend fun logout(): Result<Boolean> {
-        val result = apiClient.logout()
+        val result = LuciApiClient.logout()
         clearSavedCredentials()
         return result
     }
@@ -40,7 +53,7 @@ class NetworkRepository(private val context: Context) {
         val ip = prefs.getString("ip_address", null)
         val username = prefs.getString("username", null)
         val password = prefs.getString("password", null)
-        
+
         return if (ip != null && username != null && password != null) {
             LoginCredentials(ip, username, password)
         } else null

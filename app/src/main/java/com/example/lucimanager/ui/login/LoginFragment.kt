@@ -40,7 +40,6 @@ class LoginFragment : Fragment() {
         setupInputListeners()
         setupLoginButton()
         observeViewModel()
-        loadSavedCredentials()
     }
     
     private fun setupInputListeners() {
@@ -104,10 +103,6 @@ class LoginFragment : Fragment() {
                 binding.passwordEditText.setText(it.password)
             }
         })
-    }
-    
-    private fun loadSavedCredentials() {
-        // This will trigger the observer to populate the fields
     }
     
     private fun showLoading(show: Boolean) {

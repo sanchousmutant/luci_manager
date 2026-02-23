@@ -1,12 +1,5 @@
 <resources>
     <string name="app_name">OpenWrt Manager</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">OpenWrt Manager</string>
-    <string name="nav_header_subtitle">Network Interface Management</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
     <!-- Login Screen -->
     <string name="login_title">OpenWrt Manager</string>
     <string name="login_subtitle">Manage your network interfaces</string>
@@ -45,12 +38,5 @@
     <!-- Buttons -->
     <string name="button_retry">Retry</string>
     
-    <!-- Legacy strings for old layouts -->
-    <string name="fab_content_description">Floating Action Button</string>
-    <string name="image_view_item_transform_content_description">Transform item image</string>
-    <string name="menu_transform">Transform</string>
-    <string name="menu_reflow">Reflow</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_settings">Settings</string>
-    
+
 </resources>

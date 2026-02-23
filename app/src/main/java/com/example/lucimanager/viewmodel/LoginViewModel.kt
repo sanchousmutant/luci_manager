@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.LoginCredentials
 import com.example.lucimanager.model.LuciSession
 import com.example.lucimanager.repository.NetworkRepository
+import com.example.lucimanager.utils.NetworkUtils
 import kotlinx.coroutines.launch
 
 sealed class LoginState {
@@ -36,7 +37,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
 
-        if (!isValidIpAddress(ipAddress)) {
+        if (!NetworkUtils.isValidIPAddress(ipAddress)) {
             _loginState.value = LoginState.Error("Please enter a valid IP address")
             return
         }
@@ -57,20 +58,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun loadSavedCredentials() {
         _savedCredentials.value = repository.getSavedCredentials()
-    }
-
-    private fun isValidIpAddress(ip: String): Boolean {
-        val parts = ip.split(".")
-        if (parts.size != 4) return false
-        
-        return parts.all { part ->
-            try {
-                val num = part.toInt()
-                num in 0..255
-            } catch (e: NumberFormatException) {
-                false
-            }
-        }
     }
 
     fun clearError() {

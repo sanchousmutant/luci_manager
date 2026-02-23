@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.lucimanager"
-        minSdk = 24      // Updated from 26 to 34 for compatibility with Material Components
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -50,6 +51,9 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     
+    // Security
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
     // Networking
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")

@@ -51,13 +51,11 @@ class InterfaceViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val result = repository.toggleInterface(interfaceName, enable)
             
-            _toggleState.value = if (result.isSuccess) {
-                ToggleState.Success(interfaceName, enable)
-                // Reload interfaces to get updated status
+            if (result.isSuccess) {
+                _toggleState.value = ToggleState.Success(interfaceName, enable)
                 loadInterfaces()
-                ToggleState.Idle
             } else {
-                ToggleState.Error(result.exceptionOrNull()?.message ?: "Failed to toggle interface")
+                _toggleState.value = ToggleState.Error(result.exceptionOrNull()?.message ?: "Failed to toggle interface")
             }
         }
     }

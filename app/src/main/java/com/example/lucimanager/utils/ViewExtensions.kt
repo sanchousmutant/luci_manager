@@ -7,44 +7,11 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
 /**
- * Extension functions for Views and UI components
- */
-
-/**
  * Hide software keyboard
  */
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
-}
-
-/**
- * Show software keyboard for EditText
- */
-fun View.showKeyboard() {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
-}
-
-/**
- * Set view visibility with fade animation
- */
-fun View.setVisibilityWithFade(visible: Boolean, duration: Long = 300) {
-    if (visible) {
-        alpha = 0f
-        visibility = View.VISIBLE
-        animate()
-            .alpha(1f)
-            .setDuration(duration)
-            .setListener(null)
-    } else {
-        animate()
-            .alpha(0f)
-            .setDuration(duration)
-            .withEndAction {
-                visibility = View.GONE
-            }
-    }
 }
 
 /**
@@ -69,7 +36,11 @@ fun Fragment.showSnackbar(
  * Show error snackbar
  */
 fun Fragment.showErrorSnackbar(message: String) {
-    showSnackbar(message, "Dismiss", duration = Snackbar.LENGTH_LONG)
+    view?.let { view ->
+        val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+        snackbar.setAction("Dismiss") { snackbar.dismiss() }
+        snackbar.show()
+    }
 }
 
 /**
